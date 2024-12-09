@@ -1,8 +1,8 @@
-import { Git, Branch, Commit } from "./types.ts";
+import { Git, Branch, Commit } from "./types";
 
 
 // Initialize a new Git repository
-function init(repoPath: string): Git {
+export function init(repoPath: string): Git {
   const initialCommit: Commit = {
     hash: generateHash(),
     message: "Initial commit",
@@ -26,13 +26,13 @@ function init(repoPath: string): Git {
 }
 
 // Stage a file
-function add(git: Git, filePath: string, content: string): void {
+export function add(git: Git, filePath: string, content: string): void {
   git.stagedFiles[filePath] = content;
   console.log(`Staged file: ${filePath}`);
 }
 
 // Commit staged files
-function commit(git: Git, message: string): void {
+export function commit(git: Git, message: string): void {
   if (!git.currentBranch) {
     throw new Error("No branch is currently checked out.");
   }
@@ -52,12 +52,13 @@ function commit(git: Git, message: string): void {
   };
 
   branch.commits.push(newCommit);
-  branch.currentCommitIndex++;
+  branch.currentCommitIndex += 1;
   git.stagedFiles = {}; // Clear staged files
   console.log(`Committed with message: "${message}"`);
 }
 
 // Generate a hash for the commit (mocked)
-function generateHash(): string {
-  return Math.random().toString(36).substr(2, 9);
+export function generateHash(): string {
+// crypto
+  return Math.random().toString(36).substring(7);
 }
