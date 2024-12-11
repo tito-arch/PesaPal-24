@@ -4,6 +4,7 @@ import {describe, expect, it} from '@jest/globals';
 describe('git', () => {
     it('initializes a git repository', () => {
         const git = init('test-repo')
+        console.log(git); // Get a glimpse of the Git object
         expect(git).toEqual({
             repoPath: 'test-repo',
             stagedFiles: {},
