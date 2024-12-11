@@ -6,3 +6,20 @@
 * Resources : [Simple Git](https://github.com/steveukx/git-js)
 
 * I also used this video to understand git deeply [Git internals](https://www.youtube.com/watch?v=lG90LZotrpo)
+
+
+## Prerequisites
+
+- Node.js installed on your machine.
+
+## Getting Started
+
+1. Clone the repository.
+2. Install dependencies `npm i`
+
+## Usage
+
+### Initialize a Repository
+
+```sh
+node cli.js init
