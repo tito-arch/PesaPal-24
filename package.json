@@ -1,7 +1,8 @@
 {
   "name": "p-pal",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "init.js",
+  "type": "module",
   "scripts": {
     "test": "jest"
   },
