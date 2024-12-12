@@ -1,14 +1,25 @@
-# Intro
+# This is a simple version of Git
 
-I think the world is full of interesting problems. These are some nice challenges worth solving.
 
-## Directory Structure
+* It relies on the relies heavily on the **Node JS File Sytem** [Node js file system W3 schools](https://www.w3schools.com/nodejs/nodejs_filesystem.asp)
 
-I want to try two of these problems that seem interesting to me. Since I have interacted with Git and Terminal applications, this is an opportunity to take a deep dive.
+* Resources : [Simple Git](https://github.com/steveukx/git-js)
 
-* The `Git` app is in the `dscs` (_Distributed Source Control System_) directory, and the `Z-Terminal-App` is in its respective directory.
+* I also used this video to understand git deeply [Git internals](https://www.youtube.com/watch?v=lG90LZotrpo)
 
-* I will probably make more progress on the Git app, but I will try my best to succeed in both and, even better, take this to the next level. Whether I do that or not, we shall find out!
 
-* Both apps have their `ReadMe` files.
+## Prerequisites
 
+- Node.js installed on your machine.
+
+## Getting Started
+
+1. Clone the repository.
+2. Install dependencies `npm i`
+
+## Usage
+
+### Initialize a Repository
+
+```sh
+node cli.js init
