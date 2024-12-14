@@ -22,4 +22,13 @@
 ### Initialize a Repository
 
 ```sh
-node cli.js init
+
+# Commands
+
+npx jest # All tests passing
+
+node cli.js init  # temporalily faulty
+
+
+
+```
