@@ -1,4 +1,4 @@
-import { init, add, commit } from './init'
+import { init, add, commit } from './index'
 import {describe, expect, it} from '@jest/globals';
 import * as fs from 'fs';
 import * as path from 'path';

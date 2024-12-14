@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { Git, Branch, Commit } from "./types.js";
 import * as fs from "fs";
 import * as path from "path";
@@ -73,6 +75,9 @@ export function commit(git: Git, message: string): void {
   }
 
   const branch = git.branches[git.currentBranch];
+  if (!branch) {
+    throw new Error(`Branch ${git.currentBranch} does not exist.`);
+  }
 
   if (Object.keys(git.stagedFiles).length === 0) {
     throw new Error("No files to commit.");

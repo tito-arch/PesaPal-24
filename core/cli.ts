@@ -1,9 +1,9 @@
-#!/usr/bin/env ts-node
+#!/usr/bin/env node
 
 import * as fs from "fs";
 import * as path from "path";
 // import * as crypto from "crypto";
-import { init, add, commit } from "./index.ts"
+import { init, add, commit } from "./index"
 
 // Command line argument parser (you can use libraries like yargs or commander, but for simplicity, using process.argv)
 const [,, command, ...args] = process.argv;
@@ -18,7 +18,7 @@ switch (command) {
       console.log("Please provide a repository path.");
       process.exit(1);
     }
-    const repoPath = getFilePath(args[0]);
+    const repoPath = getFilePath(args[0] || "");
     try {
       const git = init(repoPath); // Call the init function
       console.log(`Git repository initialized at: ${repoPath}`);
@@ -32,8 +32,8 @@ switch (command) {
       console.log("Please provide a file path and content.");
       process.exit(1);
     }
-    const filePath = getFilePath(args[0]);
-    const content = args[1];
+    const filePath = getFilePath(args[0] || "");
+    const content = args[1] || "";
     try {
       const git = JSON.parse(fs.readFileSync(path.join(process.cwd(), "git.json"), "utf-8"));
       add(git, filePath, content); // Call the add function
