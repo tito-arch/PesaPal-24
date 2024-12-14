@@ -3,7 +3,7 @@
 import * as fs from "fs";
 import * as path from "path";
 // import * as crypto from "crypto";
-import { init, add, commit } from "./init"
+import { init, add, commit } from "./index.ts"
 
 // Command line argument parser (you can use libraries like yargs or commander, but for simplicity, using process.argv)
 const [,, command, ...args] = process.argv;

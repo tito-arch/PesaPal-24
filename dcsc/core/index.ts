@@ -1,4 +1,4 @@
-import { Git, Branch, Commit } from "./types";
+import { Git, Branch, Commit } from "./types.js";
 import * as fs from "fs";
 import * as path from "path";
 import * as crypto from "crypto";
@@ -49,6 +49,8 @@ export function init(repoPath: string): Git {
   }
 }
 
+console.log("this is the index file");
+
 
 // Stage a file
 export function add(git: Git, filePath: string, content: string): void {
@@ -83,6 +85,8 @@ export function commit(git: Git, message: string): void {
     timestamp: new Date().toISOString(),
     files: { ...git.stagedFiles },
   };
+
+
 
   branch.commits.push(newCommit);
   branch.currentCommitIndex += 1;
