@@ -4,6 +4,7 @@
   "_version": "22.0.0",
   "compilerOptions": {
     "lib": [
+      "dom",
       "es2023"
     ],
     "outDir": "dist",
@@ -14,5 +15,8 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "moduleResolution": "node"
-  }
+  },
+  "include": [
+    "core"
+  ]
 }
