@@ -12,8 +12,12 @@ export function init(repoPath: string): Git {
     if (!fs.existsSync(repoPath)) {
       fs.mkdirSync(repoPath, { recursive: true });
       // Set rwx permissions for the directory
+      console.log(repoPath)
       fs.chmodSync(repoPath, 0o777);
     }
+
+    console.log(repoPath)
+
 
     const initialCommit: Commit = {
       hash: generateHash(),
@@ -51,7 +55,7 @@ export function init(repoPath: string): Git {
   }
 }
 
-
+console.log("Hello")
 
 
 // Stage a file
