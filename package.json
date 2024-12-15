@@ -6,8 +6,8 @@
   "scripts": {
     "test": "jest",
     "dev": "tsc -w",
-    "link-cli": "npm link ", 
-    "build":"tsc",
+    "link-cli": "npm link ",
+    "build": "tsc",
     "unlink-cli": "npm unlink ",
     "chmod-wx": "chmod +x dist/index.js dist/cli.js"
   },
@@ -27,5 +27,8 @@
     "babel-jest": "^29.7.0",
     "jest": "^29.7.0",
     "ts-jest": "^29.2.5"
+  },
+  "dependencies": {
+    "commander": "^12.1.0"
   }
 }
