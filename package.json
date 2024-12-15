@@ -1,7 +1,7 @@
 {
   "name": "simple-git",
   "version": "0.1.0",
-  "main": "dist/index.js",
+  "main": "dist/cli.js",
   "type": "module",
   "scripts": {
     "test": "jest",
@@ -12,7 +12,7 @@
     "chmod-wx": "chmod +x dist/index.js dist/cli.js"
   },
   "bin": {
-    "simplegit": "dist/index.js"
+    "simplegit": "dist/cli.js"
   },
   "keywords": [],
   "author": "M. I. Titus",
