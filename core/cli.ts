@@ -1,64 +1,41 @@
 #!/usr/bin/env node
 
-import * as fs from "fs";
-import * as path from "path";
-// import * as crypto from "crypto";
-import { init, add, commit } from "./index"
+import { Command } from "commander";
+import { Commit, Branch, Git } from "./types";
+import { init, add, commit } from ".";
+import fs from "fs";
+import path from "path";
 
-// Command line argument parser (you can use libraries like yargs or commander, but for simplicity, using process.argv)
-const [,, command, ...args] = process.argv;
+const program = new Command();
 
-// Helper function to parse paths
-const getFilePath = (relativePath: string) => path.resolve(process.cwd(), relativePath);
+const git : Git = JSON.parse(fs.readFileSync(path.join(process.cwd(), "git.json"), "utf-8"));
 
-// CLI logic
-switch (command) {
-  case "init":
-    if (args.length < 1) {
-      console.log("Please provide a repository path.");
-      process.exit(1);
-    }
-    const repoPath = getFilePath(args[0] || "");
-    try {
-      const git = init(repoPath); // Call the init function
-      console.log(`Git repository initialized at: ${repoPath}`);
-    } catch (error) {
-      console.error("Error initializing repository:", error);
-    }
-    break;
+program
+  .command("init <repoPath>")
+  .description("Initialize a new Git repository")
+  .action((repoPath: string) => {
+    init(repoPath);
+    console.log(`Initialized empty Git repository in ${repoPath}`);
 
-  case "add":
-    if (args.length < 2) {
-      console.log("Please provide a file path and content.");
-      process.exit(1);
-    }
-    const filePath = getFilePath(args[0] || "");
-    const content = args[1] || "";
-    try {
-      const git = JSON.parse(fs.readFileSync(path.join(process.cwd(), "git.json"), "utf-8"));
-      add(git, filePath, content); // Call the add function
-      console.log(`File ${filePath} staged.`);
-    } catch (error) {
-      console.error("Error staging file:", error);
-    }
-    break;
+  });
 
-  case "commit":
-    if (args.length < 1) {
-      console.log("Please provide a commit message.");
-      process.exit(1);
-    }
-    const commitMessage = args.join(" ");
-    try {
-      const git = JSON.parse(fs.readFileSync(path.join(process.cwd(), "git.json"), "utf-8"));
-      commit(git, commitMessage); // Call the commit function
-      console.log(`Commit with message: "${commitMessage}"`);
-    } catch (error) {
-      console.error("Error committing:", error);
-    }
-    break;
 
-  default:
-    console.log("Unknown command. Available commands: init, add, commit.");
-    process.exit(1);
-}
+
+  program
+    .command("add <filePath> <content>")
+    .description("Stage a file")
+    .action((filePath: string, content: string ) => {
+    add(git, filePath, content);
+    console.log(`Staged file: ${filePath}`);
+});
+
+program
+    .command("commit <message>")
+    .description("Commit staged files")
+    .action((message:string) => {
+    commit(git, message);
+    console.log(`Committed files: ${message}`);
+});
+
+program.parse(process.argv);
+
