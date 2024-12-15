@@ -51,7 +51,7 @@ export function init(repoPath: string): Git {
   }
 }
 
-console.log("this is the index file");
+
 
 
 // Stage a file
