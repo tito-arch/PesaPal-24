@@ -29,12 +29,13 @@ npm link # exposes all functions globally --> custom commands I tried to add do 
 
 # Now from any terminal session you can call simplegit
 
-npm unlink  # unlink once done testing
 
-npx jest # All tests passing
 
-node cli.js init  # temporalily faulty
+simplegit --help  # View CLI docs.
 
 
 
+npx jest # All tests passing.
+
+npm unlink  # unlink once done.
 ```
