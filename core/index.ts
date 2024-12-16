@@ -8,7 +8,14 @@ import * as crypto from "crypto";
 // Initialize a new Git repository
 export function init(repoPath: string): Git {
   try {
-  
+    // Ensure the repository path exists
+    if (!fs.existsSync(repoPath)) {
+      fs.mkdirSync(repoPath, { recursive: true });
+      // Set rwx permissions for the directory
+      console.log(repoPath)
+      fs.chmodSync(repoPath, 0o777);
+    }
+
     console.log(repoPath)
 
 
