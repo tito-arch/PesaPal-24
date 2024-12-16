@@ -55,7 +55,6 @@ export function init(repoPath: string): Git {
   }
 }
 
-console.log("Hello")
 
 
 // Stage a file
